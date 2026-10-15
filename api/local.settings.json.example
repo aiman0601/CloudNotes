@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_account_key>;EndpointSuffix=core.windows.net",
+    "STORAGE_CONTAINER_NAME": "student-resources",
+    "COSMOS_CONNECTION_STRING": "AccountEndpoint=https://<your-cosmos-db>.documents.azure.com:443/;AccountKey=<your-key>;",
+    "COSMOS_DATABASE_ID": "NotesDB",
+    "COSMOS_CONTAINER_ID": "Resources"
+  },
+  "Host": {
+    "CORS": "*"
+  }
+}
