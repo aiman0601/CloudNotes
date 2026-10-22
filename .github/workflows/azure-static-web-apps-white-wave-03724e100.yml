@@ -34,7 +34,9 @@ jobs:
         run: npm ci
 
       - name: Build Frontend
-        run: npm run build
+        run: |
+          npm run build
+          cp staticwebapp.config.json dist/staticwebapp.config.json
 
       - name: Install API Dependencies
         run: |
@@ -61,10 +63,10 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "/"
+          app_location: "dist"
           api_location: "api"
-          output_location: "dist"
-          skip_app_build: true # We already built with npm run build cleanly!
+          output_location: ""
+          skip_app_build: true # Pre-built assets are directly inside app_location ("dist")
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
