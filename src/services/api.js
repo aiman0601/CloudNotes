@@ -39,7 +39,7 @@ export async function getNotes(params = {}) {
     if (semester !== 'all') query.set('semester', semester);
 
     const res = await fetch(`/api/notes?${query.toString()}`, {
-      signal: AbortSignal.timeout(2500)
+      signal: AbortSignal.timeout(6000)
     });
 
     if (res.ok) {
@@ -88,7 +88,7 @@ export async function getUploadSasUrl(fileMetadata) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(fileMetadata),
-      signal: AbortSignal.timeout(3000)
+      signal: AbortSignal.timeout(6000)
     });
 
     if (res.ok) {
@@ -167,7 +167,7 @@ export async function createNoteRecord(metadata) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(metadata),
-      signal: AbortSignal.timeout(3000)
+      signal: AbortSignal.timeout(6000)
     });
 
     if (res.ok) {
@@ -202,7 +202,7 @@ export async function upvoteNote(noteId, courseCode) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: noteId, courseCode }),
-      signal: AbortSignal.timeout(2000)
+      signal: AbortSignal.timeout(6000)
     });
     if (res.ok) {
       return await res.json();
